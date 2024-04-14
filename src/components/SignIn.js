@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {useNavigate, useLocation} from 'react-router-dom';
+import AccountContext from './AccountContext';
 
 function Copyright(props) {
   return (
@@ -26,9 +27,11 @@ function Copyright(props) {
 
 const defaultTheme = createTheme();
 
-export default function SignIn() {
+export default function SignIn(props) {
+  const { handleAdd } = React.useContext(AccountContext);
   const navigate = useNavigate();
   const location = useLocation();
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -36,6 +39,7 @@ export default function SignIn() {
     account = data.get('username')
 
     if (account != null){
+      handleAdd(account);
       navigate('/', {state: {account: account}})
     }
   };

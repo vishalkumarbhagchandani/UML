@@ -24,6 +24,17 @@
   color: white;
 }
 
+.Admin-header{
+  background-color: #282c34;
+  text-align: center;
+  color: white;
+  display: block;
+  text-align: center;
+  padding-top: 20px;
+  font-size: calc(10px + 2vmin);
+  min-height: 100vh;
+}
+
 .App-link {
   color: #61dafb;
 }
