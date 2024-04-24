@@ -35,6 +35,13 @@
   min-height: 100vh;
 }
 
+.ticket {
+  border: 1px solid #000;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
 .App-link {
   color: #61dafb;
 }

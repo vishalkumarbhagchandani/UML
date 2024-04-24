@@ -15,6 +15,7 @@ function App() {
   const account = location.state?.account;
   const accountList = React.useContext(AccountContext);
   const navigate = useNavigate();
+  const [showNewComponent, setShowNewComponent] = React.useState(false);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -45,10 +46,24 @@ function App() {
     }
   }
 
+  const handleSupport = () => {
+    navigate('support', { state: { account: account } })
+  }
+
+  const handleAutomobileClick = () => {
+    if (showNewComponent) {
+      setShowNewComponent(false);
+    } else {
+      setShowNewComponent(true);
+    }
+  }
 
   return (
     <div className="App">
       <Toolbar style={{ backgroundColor: '#6b6a67', display: 'flex', justifyContent: 'flex-end' }}>
+        {account !== undefined && (
+          <Button variant="contained" style={{ marginRight: '10px' }} onClick={()=> handleSupport()}>Support</Button>
+        )}
         {account === 'admin' && (
           <Button variant="contained" style={{ marginRight: '10px' }} onClick={() => handleAdmin()}>Admin Panel</Button>
         )}
@@ -75,12 +90,12 @@ function App() {
       <header className="App-header">
         <h1>Insurance</h1>
         <div className="button-container">
-          <button className="button">Automobile</button>
+          <button className="button" onClick={() => handleAutomobileClick()}>Automobile</button>
           <button className="button">Health</button>
+          {showNewComponent && <Insurancequotes />}
         </div>
       </header>
       {/* Render the InsuranceQuoteForm component */}
-      <Insurancequotes />
     </div>
   );
 }

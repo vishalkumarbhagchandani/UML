@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
+import Button from '@mui/material/Button';
 
 function InsuranceQuoteForm() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -36,7 +37,7 @@ function InsuranceQuoteForm() {
 
   return (
     <div>
-      <button onClick={openModal}>Insurance</button>
+      <Button variant="contained" onClick={openModal}>Open Form</Button>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -44,72 +45,86 @@ function InsuranceQuoteForm() {
       >
         <h2>Get Insurance Quote</h2>
         <form onSubmit={handleSubmit}>
-          <label>
-            Name:
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Age:
-            <input
-              type="number"
-              name="age"
-              value={formData.age}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Vehicle Make:
-            <input
-              type="text"
-              name="vehicleMake"
-              value={formData.vehicleMake}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Vehicle Model:
-            <input
-              type="text"
-              name="vehicleModel"
-              value={formData.vehicleModel}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Coverage Options:
-            <select
-              name="coverage"
-              value={formData.coverage}
-              onChange={handleChange}
-            >
-              <option value="basic">Basic</option>
-              <option value="standard">Standard</option>
-              <option value="premium">Premium</option>
-            </select>
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="multiPolicyDiscount"
-              checked={formData.multiPolicyDiscount}
-              onChange={handleChange}
-            />
-            Multi-Policy Discount
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="goodDriverDiscount"
-              checked={formData.goodDriverDiscount}
-              onChange={handleChange}
-            />
-            Good Driver Discount
-          </label>
+          <div>
+            <label>
+              Name:
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              Age:
+              <input
+                type="number"
+                name="age"
+                value={formData.age}
+                onChange={handleChange}
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              Vehicle Make:
+              <input
+                type="text"
+                name="vehicleMake"
+                value={formData.vehicleMake}
+                onChange={handleChange}
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              Vehicle Model:
+              <input
+                type="text"
+                name="vehicleModel"
+                value={formData.vehicleModel}
+                onChange={handleChange}
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              Coverage Options:
+              <select
+                name="coverage"
+                value={formData.coverage}
+                onChange={handleChange}
+              >
+                <option value="basic">Basic</option>
+                <option value="standard">Standard</option>
+                <option value="premium">Premium</option>
+              </select>
+            </label>
+          </div>
+          <div>
+            <label>
+              <input
+                type="checkbox"
+                name="multiPolicyDiscount"
+                checked={formData.multiPolicyDiscount}
+                onChange={handleChange}
+              />
+              Multi-Policy Discount
+            </label>
+          </div>
+          <div>
+            <label>
+              <input
+                type="checkbox"
+                name="goodDriverDiscount"
+                checked={formData.goodDriverDiscount}
+                onChange={handleChange}
+              />
+              Good Driver Discount
+            </label>
+          </div>
           {/* Add more form fields as needed */}
           <button type="submit">Get Quote</button>
         </form>

@@ -30,7 +30,6 @@ const defaultTheme = createTheme();
 export default function SignIn(props) {
   const { handleAdd } = React.useContext(AccountContext);
   const navigate = useNavigate();
-  const location = useLocation();
   
   const handleSubmit = (event) => {
     event.preventDefault();
